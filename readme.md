@@ -20,3 +20,20 @@ yarn add @tensorflow/tfjs-node
 Troubleshoot for Windows (error saat instalasi diatas) :
 * Install Visual C++ build environment manually [Download here](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
 * Choose __Desktop development with C++" workload__  
+
+## AUTHENTICATION USER
+Login Logout and who's inside me are using session in tables SQL
+3 Main file 
+* controllers/Authentication.js
+* routes/AuthenticationRoute.js
+* app.js (to use create table session)
+
+### Session User
+this session user is using to keep the session-cookie of user when the server is being restart, but the user is not logout
+- Depedency : 
+`npm install connect-session-sequelize`
+- import the packages in to the main app `import SequelizeStore from "connect-session-sequelize";`
+- Create variables in main app, with `SequelizeStore(session.Store)`
+- Create table session in DB using `store.sync();`
+- after table create, you can disable the function above
+- done
