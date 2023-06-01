@@ -10,22 +10,25 @@ Content-Type: application/json
   "role": "user"
 }
 
+
 ###
 // GET ALL USER
 GET http://localhost:5000/users
+
 
 ###
 // GET SINGLE USER
 GET http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
 
+
 ###
 // UPDATE USER
-PATCH http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
+PATCH http://localhost:5000/users/b5943a76-ecf3-4fb5-a1b1-1f5c73cc0cf9
 Content-Type: application/json
 
 {
-  "name": "Yusuf",
-  "email": "email@gmail.com",
+  "name": "Yusuf Baqir",
+  "email": "email@yahoo.com",
   "password": "",
   "confPassword": "",
   "role": "user"
@@ -35,3 +38,24 @@ Content-Type: application/json
 ###
 // DELETE USER
 DELETE http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
+
+
+###
+// LOGIN USER
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "email@yahoo.com",
+  "password": "123"
+}
+
+
+###
+// VERIFY WHO IS INSIDE
+GET http://localhost:5000/me
+
+
+###
+// LOGOUT USER
+DELETE http://localhost:5000/Logout

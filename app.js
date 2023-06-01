@@ -5,9 +5,17 @@ import dotenv from "dotenv";
 import db from "./config/Database.js";
 import UserRoute from "./routes/UserRoute.js";
 import ProductRoute from "./routes/ProductRoute.js";
+import AuthenticationRoute from "./routes/AuthenticationRoute.js";
+import SequelizeStore from "connect-session-sequelize";
 dotenv.config();
 
 const app = express();
+
+const sessionstore = SequelizeStore(session.Store)
+
+const store = new sessionstore({
+    db: db
+});
 
 // CREATE TABLE
 // (async ()=>{
@@ -18,6 +26,7 @@ app.use(session({
     secret: process.env.SESS_SECRET,
     resave: false,
     saveUninitialized: true,
+    store: store,
     cookie: {
         secure: 'auto'
     }
@@ -32,6 +41,10 @@ app.use(cors({
 app.use(express.json());
 app.use(UserRoute);
 app.use(ProductRoute);
+app.use(AuthenticationRoute);
+
+// CREATE TABLE SESSION IN DB
+// store.sync();
 
 try{
     await db.authenticate();
