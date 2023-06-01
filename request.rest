@@ -1,12 +1,20 @@
-GET http://localhost:5000/users
-
-###
+// CREATE ACCOUNT
 POST http://localhost:5000/users
-Content-Type: : application/json
+Content-Type: application/json
 
 {
-  "name": "Faishal Yusuf",
+  "name": "Faishal",
   "email": "email@gmail.com",
   "password": "123",
-  "confPassword": "123"
+  "confPassword": "123",
+  "role": "admin"
 }
+
+
+###
+// GET ALL USER
+GET http://localhost:5000/users
+
+
+// GET SINGLE USER
+

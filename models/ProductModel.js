@@ -1,3 +1,4 @@
+// CREATE PRODUCT TABLE
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 import Users from "./UserModel.js";

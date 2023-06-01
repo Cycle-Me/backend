@@ -1,23 +1,20 @@
-import Users from "../models/UserModel.js";
+import User from "../models/UserModel.js";
 import argon2 from "argon2";
-import {response} from "express";
-
 
 export const getUsers = async(req, res) => {
     try {
-        const users = await Users.findAll({
-
+        const response = await User.findAll({
+            attributes:['uuid','name','email','role']
         });
         res.status(200).json(response);
     } catch (error) {
         res.status(500).json({msg: error.message})
-        console.log(error)
     }
 }
 
 export const getUserById = async(req, res) => {
     try {
-        const users = await Users.findOne({
+        const response = await User.findOne({
             attributes:['uuid','name','email','role'],
             where: {
                 uuid: req.params.id
@@ -26,7 +23,6 @@ export const getUserById = async(req, res) => {
         res.status(200).json(response);
     } catch (error) {
         res.status(500).json({msg: error.message})
-        console.log(error)
     }
 }
 
@@ -45,4 +41,13 @@ export const createUser = async(req, res) =>{
     } catch (error) {
         res.status(400).json({msg: error.message});
     }
+}
+
+
+export const updateUser = async (req, res) =>{
+
+}
+
+export const deleteUser = async (req, res) =>{
+
 }
