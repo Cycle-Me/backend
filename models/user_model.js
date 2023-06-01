@@ -1,11 +1,10 @@
 // CREATE TABLE
-
 import {Sequelize} from "sequelize";
-import database from "../routes/database.js";
+import db from "../config/database.js";
 
 const {DataTypes} = Sequelize;
 
-const Users = database.define('users',{
+const Users = db.define('userss',{
     name:{
         type: DataTypes.STRING
     },

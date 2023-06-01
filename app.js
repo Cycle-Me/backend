@@ -22,30 +22,28 @@
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // module.exports = app;
 
+
+
+
+
+
+
+
+
+
+
 import express from "express";
-import db from "./routes/database.js";
+import db from "./config/database.js";
 import router from "./routes/index.js";
-// import Users from "./models/user_model.js"; = JALANKAN CODE INI JIKA BELUM ADA TABLE PADA SQL
+// import Users from "./models/user_model.js"; //// = JALANKAN CODE INI JIKA BELUM ADA TABLE PADA SQL
 const app = express();
 
 try{
     await db.authenticate();
     console.log("Database Connected...")
-    // await Users.sync(); = JALANKAN CODE INI JIKA BELUM ADA TABLE PADA SQL
+    // await Users.sync(); //// = JALANKAN CODE INI JIKA BELUM ADA TABLE PADA SQL
 } catch (error) {
     console.error(error)
 }
