@@ -3,18 +3,35 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Faishal",
+  "name": "Yusuf",
   "email": "email@gmail.com",
   "password": "123",
   "confPassword": "123",
-  "role": "admin"
+  "role": "user"
 }
-
 
 ###
 // GET ALL USER
 GET http://localhost:5000/users
 
-
+###
 // GET SINGLE USER
+GET http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
 
+###
+// UPDATE USER
+PATCH http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
+Content-Type: application/json
+
+{
+  "name": "Yusuf",
+  "email": "email@gmail.com",
+  "password": "",
+  "confPassword": "",
+  "role": "user"
+}
+
+
+###
+// DELETE USER
+DELETE http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
