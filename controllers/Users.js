@@ -1,4 +1,4 @@
-import Users from "../models/user_model.js";
+import Users from "../models/UserModel.js";
 import argon2 from "argon2";
 import {response} from "express";
 

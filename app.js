@@ -35,9 +35,9 @@
 
 
 import express from "express";
-import db from "./config/database.js";
+import db from "./config/Database.js";
 import router from "./routes/index.js";
-// import Users from "./models/user_model.js"; //// = JALANKAN CODE INI JIKA BELUM ADA TABLE PADA SQL
+// import Users from "./models/UserModel.js"; //// = JALANKAN CODE INI JIKA BELUM ADA TABLE PADA SQL
 const app = express();
 
 try{
