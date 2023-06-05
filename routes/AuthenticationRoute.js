@@ -8,6 +8,3 @@ router.post('/Login', Login);
 router.delete('/Logout', Logout);
 
 export default router;
-
-
-

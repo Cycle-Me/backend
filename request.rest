@@ -3,11 +3,11 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Yusuf",
+  "name": "Faishal",
   "email": "email@gmail.com",
   "password": "123",
   "confPassword": "123",
-  "role": "user"
+  "role": "admin"
 }
 
 
@@ -23,15 +23,15 @@ GET http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
 
 ###
 // UPDATE USER
-PATCH http://localhost:5000/users/b5943a76-ecf3-4fb5-a1b1-1f5c73cc0cf9
+PATCH http://localhost:5000/users/1d4b9aeb-faf1-47ce-8062-d2e8d6776a95
 Content-Type: application/json
 
 {
-  "name": "Yusuf Baqir",
-  "email": "email@yahoo.com",
+  "name": "Faishal Yusuf Baqir",
+  "email": "faishalyb@gmail.com",
   "password": "",
   "confPassword": "",
-  "role": "user"
+  "role": "admin"
 }
 
 
@@ -46,7 +46,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "email@yahoo.com",
+  "email": "email@gmail.com",
   "password": "123"
 }
 
