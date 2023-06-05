@@ -3,8 +3,8 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Faishal",
-  "email": "email@gmail.com",
+  "name": "Nishfa",
+  "email": "nishfa@gmail.com",
   "password": "123",
   "confPassword": "123",
   "role": "admin"
@@ -23,21 +23,32 @@ GET http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
 
 ###
 // UPDATE USER
-PATCH http://localhost:5000/users/1d4b9aeb-faf1-47ce-8062-d2e8d6776a95
+PATCH http://localhost:5000/users/0f030f62-6f0d-429d-a363-33d31b07d587
 Content-Type: application/json
 
 {
-  "name": "Faishal Yusuf Baqir",
-  "email": "faishalyb@gmail.com",
+  "name": "Nishfa Azizah",
+  "email": "nishfaaz@gmail.com",
   "password": "",
   "confPassword": "",
-  "role": "admin"
+  "role": "user"
 }
 
 
 ###
 // DELETE USER
-DELETE http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
+DELETE http://localhost:5000/users/0687a6cd-5f09-4e97-8d11-feb098466a93
+
+
+###
+// LOGIN ADMIN
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "faishalyb@gmail.com",
+  "password": "123"
+}
 
 
 ###
@@ -46,7 +57,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "email@gmail.com",
+  "email": "nishfaaz@gmail.com",
   "password": "123"
 }
 
