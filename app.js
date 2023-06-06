@@ -9,6 +9,8 @@ import ProductRoute from "./routes/ProductRoute.js";
 import AuthenticationRoute from "./routes/AuthenticationRoute.js";
 dotenv.config();
 
+const port = process.env.PORT || 5000;
+const secret = process.env.SESS_SECRET || "qhjc4mp83uqy45tjdf9835qyp9483mu349857oiwedjoiru923401"
 const app = express();
 
 const sessionstore = SequelizeStore(session.Store)
@@ -24,7 +26,7 @@ const store = new sessionstore({
 // })();
 
 app.use(session({
-    secret: process.env.SESS_SECRET,
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     store: store,
@@ -35,12 +37,16 @@ app.use(session({
 // MOBILE FRONTEND COULD SEND REQUEST AND COOKIE
 app.use(cors({
     credential: true,
-    origin: 'http://localhost:3000'
+    origin: 'https://backend-dot-cycleme-2023.et.r.appspot.com'
 }));
 app.use(express.json());
 app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthenticationRoute);
+app.get("/", (req, res) => {
+    console.log("Response success")
+    res.send("Response Success!")
+})
 
 // CREATE TABLE SESSION IN DB
 // store.sync();
@@ -52,43 +58,10 @@ try{
     console.error(error)
 }
 
-app.listen(process.env.APP_PORT, ()=>{
-    console.log("Server is running")
-})
+// app.listen(process.env.PORT, ()=>{
+//     console.log(`Server is running...`)
+// })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  DIHAPUS AJA GAPAPA
-
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-//
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
+app.listen(port, () => {
+    console.log(`Server berjalan di port ${port}`);
+});
