@@ -1,34 +1,34 @@
 import Product from "../models/ProductModel.js";
-// import User from "../models/UserModel.js";
+import User from "../models/UserModel.js";
 // import {Op} from "sequelize";
 
 export const getProducts = async (req, res) =>{
-    // try {
-    //     let response;
-    //     if(req.role === "admin"){
-    //         response = await Product.findAll({
-    //             attributes:['uuid','name','price'],
-    //             include:[{
-    //                 model: User,
-    //                 attributes:['name','email']
-    //             }]
-    //         });
-    //     }else{
-    //         response = await Product.findAll({
-    //             attributes:['uuid','name','price'],
-    //             where:{
-    //                 userId: req.userId
-    //             },
-    //             include:[{
-    //                 model: User,
-    //                 attributes:['name','email']
-    //             }]
-    //         });
-    //     }
-    //     res.status(200).json(response);
-    // } catch (error) {
-    //     res.status(500).json({msg: error.message});
-    // }
+    try {
+        let response;
+        if(req.role === "admin"){
+            response = await Product.findAll({
+                // attributes:['uuid','name','price'],
+                include:[{
+                    model: User,
+                    // attributes:['name','email']
+                }]
+            });
+        }else{
+            response = await Product.findAll({
+                // attributes:['uuid','name','price'],
+                where:{
+                    userId: req.userId
+                },
+                include:[{
+                    model: User,
+                    // attributes:['name','email']
+                }]
+            });
+        }
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
 }
 
 export const getProductById = async(req, res) =>{
