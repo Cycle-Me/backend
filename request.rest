@@ -3,8 +3,8 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Nishfa",
-  "email": "nishfa@gmail.com",
+  "name": "faishal",
+  "email": "faishal@gmail.com",
   "password": "123",
   "confPassword": "123",
   "role": "admin"
@@ -18,20 +18,19 @@ GET http://localhost:5000/users
 
 ###
 // GET SINGLE USER
-GET http://localhost:5000/users/06a2660f-fc65-4ed1-b6d3-3fa475f0854a
+GET http://localhost:5000/users/a03b1620-c306-41f3-9b19-3bf106d1a543
 
 
 ###
 // UPDATE USER
-PATCH http://localhost:5000/users/0f030f62-6f0d-429d-a363-33d31b07d587
+PATCH http://localhost:5000/users/a03b1620-c306-41f3-9b19-3bf106d1a543
 Content-Type: application/json
 
 {
   "name": "Nishfa Azizah",
   "email": "nishfaaz@gmail.com",
   "password": "",
-  "confPassword": "",
-  "role": "user"
+  "confPassword": ""
 }
 
 
@@ -46,7 +45,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "faishalyb@gmail.com",
+  "email": "faishal@gmail.com",
   "password": "123"
 }
 
@@ -57,7 +56,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "nishfaaz@gmail.com",
+  "email": "nishfa@gmail.com",
   "password": "123"
 }
 
@@ -94,7 +93,7 @@ POST https://backend-dot-cycleme-2023.et.r.appspot.com/Login
 Content-Type: application/json
 
 {
-  "email": "nishfaaz@gmail.com",
+  "email": "nishfa@gmail.com",
   "password": "123"
 }
 
