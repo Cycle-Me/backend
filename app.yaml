@@ -1,3 +1,2 @@
 runtime: nodejs16
-service: backend
-
+service: auth-api

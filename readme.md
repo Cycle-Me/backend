@@ -1,4 +1,4 @@
-## SETTING UP ENVIRONMENT
+# SETTING UP ENVIRONMENT
 
 ### Using Webstorm IDE
 In this case, i use Webstrom IDE so the Environment of Express js would be easy.
@@ -21,14 +21,14 @@ Troubleshoot for Windows (error saat instalasi diatas) :
 * Install Visual C++ build environment manually [Download here](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
 * Choose __Desktop development with C++" workload__  
 
-## AUTHENTICATION USER
+# AUTHENTICATION USER
 Login Logout and who's inside me are using session in tables SQL
 3 Main file 
 * controllers/Authentication.js
 * routes/AuthenticationRoute.js
 * app.js (to use create table session)
 
-### Session User
+## Session User
 this session user is using to keep the session-cookie of user when the server is being restart, but the user is not logout
 - Depedency : 
 `npm install connect-session-sequelize`
@@ -37,3 +37,23 @@ this session user is using to keep the session-cookie of user when the server is
 - Create table session in DB using `store.sync();`
 - after table create, you can disable the function above
 - done
+
+## Endpoint
+### Create User
+Create an Account for user.
+
+**URL** = `https://auth-api-dot-cycleme-2023.et.r.appspot.com/`
+
+**METHOD** = `POST`
+
+**DATA INPUT**
+````
+{
+  "name": "namakamu",
+  "email": "email@kamu",
+  "password": "passwordkamu",
+  "confPassword": "passwordkamu",
+  "role": "user"
+}
+````
+
