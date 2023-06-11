@@ -4,7 +4,7 @@ import {Login,Logout,Me} from "../controllers/Authentication.js"
 const router = express.Router();
 
 router.get('/me', Me);
-router.post('/Login', Login);
-router.delete('/Logout', Logout);
+router.post('/login', Login);
+router.delete('/logout', Logout);
 
 export default router;
