@@ -11,11 +11,12 @@ export const Login = async (req, res) =>{
     const match = await argon2.verify(user.password, req.body.password);
     if(!match) return res.status(400).json({msg: "Wrong Password"});
     req.session.userId = user.uuid;
+    const sessionID = req.sessionID;
     const uuid = user.uuid;
     const name = user.name;
     const email = user.email;
     const role = user.role;
-    res.status(200).json({uuid, name, email, role});
+    res.status(200).json({error: "false", msg: "success", loginResult:{uuid, name, email, role, sessionID}});
 }
 
 // FUNCTION GET USER LOGIN UNTUK FRONTEND MOBILE
