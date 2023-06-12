@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import db from "./config/Database.js";
 import SequelizeStore from "connect-session-sequelize";
 import UserRoute from "./routes/UserRoute.js";
-import ProductRoute from "./routes/ProductRoute.js";
+import StoryRoute from "./routes/StoryRoute.js";
 import AuthenticationRoute from "./routes/AuthenticationRoute.js";
 dotenv.config();
 
@@ -41,7 +41,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(UserRoute);
-app.use(ProductRoute);
+app.use(StoryRoute);
 app.use(AuthenticationRoute);
 app.get("/", (req, res) => {
     console.log("Response success")

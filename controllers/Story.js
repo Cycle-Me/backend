@@ -1,12 +1,17 @@
-import Product from "../models/ProductModel.js";
 import User from "../models/UserModel.js";
-// import {Op} from "sequelize";
+import Story from "../models/StoryModel.js";
+import imgUpload from "../config/imgUpload.js";
 
-export const getProducts = async (req, res) =>{
+
+
+
+
+
+export const getStory = async (req, res) =>{
     try {
         let response;
-        if(req.role === "admin"){
-            response = await Product.findAll({
+        if(req.role === "admin" || "user"){
+            response = await Story.findAll({
                 // attributes:['uuid','name','price'],
                 include:[{
                     model: User,
@@ -14,7 +19,7 @@ export const getProducts = async (req, res) =>{
                 }]
             });
         }else{
-            response = await Product.findAll({
+            response = await Story.findAll({
                 // attributes:['uuid','name','price'],
                 where:{
                     userId: req.userId
@@ -69,19 +74,77 @@ export const getProductById = async(req, res) =>{
     // }
 }
 
-export const createProduct = async(req, res) =>{
-    // const {name, price} = req.body;
+export const createStory  = async(req, res) =>{
+    // const {description} = req.body;
+    // var imageUrl = '';
+    //
     // try {
-    //     await Product.create({
-    //         name: name,
-    //         price: price,
-    //         userId: req.userId
+    //     if (req.file && req.file.cloudStoragePublicUrl) {
+    //         data.imageUrl = req.file.cloudStoragePublicUrl
+    //     } else {
+    //         throw new Error('No File Uploaded!');
+    //     }
+    //     await imgUpload.uploadToGcs(req, res);
+    //     await multer.single('attachment')
+    //     const createdStory = await Story.create({
+    //         description: description,
+    //         attachment: imageUrl,
+    //         userId: req.userId,
     //     });
-    //     res.status(201).json({msg: "Product Created Successfuly"});
+    //
+    //     res.status(201).json({ msg: 'Record Created Successfully', story: createdStory });
+    //
     // } catch (error) {
-    //     res.status(500).json({msg: error.message});
+    //     res.status(500).json({ msg: error.message });
     // }
+
+
+    const {description} = req.body;
+    let imageUrl = '';
+
+    if (req.file && req.file.cloudStoragePublicUrl) {
+        imageUrl = req.file.cloudStoragePublicUrl
+    }
+
+    try {
+        // await Story.create({
+        //     description: description,
+        //     attachment: imageUrl,
+        //     userId: req.userId
+        const createdStory = await Story.create({
+            description: description,
+            attachment: imageUrl,
+            userId: req.userId
+        });
+        res.status(201).json({msg: "Product Created Successfuly", createdStory});
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
 }
+
+// export const createStory = async (req, res) => {
+//     const { description } = req.body;
+//     let attachmentUrl = '';
+//
+//     if (req.file && req.file.cloudStoragePublicUrl) {
+//         attachmentUrl = req.file.cloudStoragePublicUrl;
+//     }
+//
+//     try {
+//         // Call the uploadToGcs function to upload the image to Google Cloud Storage
+//         await imgUpload.uploadToGcs(req.file); // Pass the req.file object or any other necessary arguments
+//
+//         await Story.create({
+//             description: description,
+//             attachment: attachmentUrl,
+//             userId: req.userId,
+//         });
+//
+//         res.status(201).json({ msg: 'Product Created Successfully' });
+//     } catch (error) {
+//         res.status(500).json({ msg: error.message });
+//     }
+// };
 
 export const updateProduct = async(req, res) =>{
     // try {
@@ -140,3 +203,7 @@ export const deleteProduct = async(req, res) =>{
     //     res.status(500).json({msg: error.message});
     // }
 }
+
+
+
+

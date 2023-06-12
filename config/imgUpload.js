@@ -1,10 +1,9 @@
 `use strict`
-const {Storage} = require('@google-cloud/storage');
-// const fs = require('fs');
-const dateFormat = require('dateformat');
-const path = require('path');
+import {Storage} from "@google-cloud/storage";
+import dateFormat from "dateformat";
+import path from "path";
 
-const pathKey = path.resolve()
+const pathKey = path.resolve('./service account key.json')
 
 const gcs = new Storage({
     projectId: 'cycleme-2023',
@@ -18,18 +17,19 @@ function getPublicUrl(filename) {
     return 'https://storage.googleapis.com/' + bucketName + '/' + filename;
 }
 
-let ImgUpload = {}
+const ImgUpload = {};
 
 ImgUpload.uploadToGcs = (req, res, next) => {
     if (!req.file) return next()
 
     const gcsname = dateFormat(new Date(), "yyyymmdd-HHMMss")
     const file = bucket.file(gcsname)
+
     const stream = file.createWriteStream({
         metadata: {
             contentType: req.file.mimetype
         }
-    })
+    });
 
     stream.on('error', (err) => {
         req.file.cloudStorageError = err
@@ -45,4 +45,4 @@ ImgUpload.uploadToGcs = (req, res, next) => {
     stream.end(req.file.buffer)
 }
 
-module.exports = ImgUpload
+export default ImgUpload
