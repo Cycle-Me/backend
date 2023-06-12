@@ -3,8 +3,8 @@ import {
     getStory,
     getStoryById,
     createStory,
-    updateProduct,
-    deleteProduct
+    editStories,
+    deleteStories
 } from "../controllers/Story.js";
 import {verifyUser} from "../middleware/AuthUser.js";
 import imgUpload from "../config/imgUpload.js";
@@ -20,9 +20,9 @@ const router = express.Router();
 
 router.get('/stories', verifyUser, getStory);
 router.get('/stories/:id', verifyUser, getStoryById);
-router.post('/create-stories', verifyUser, upload.single('attachment'), imgUpload.uploadToGcs, createStory);
-router.patch('/update-stories/:id', verifyUser, updateProduct);
-router.delete('/delete-stories/:id', verifyUser, deleteProduct);
+router.post('/stories/create', verifyUser, upload.single('attachment'), imgUpload.uploadToGcs, createStory);
+router.patch('/stories/edit/:id', verifyUser, editStories);
+router.delete('/stories/delete/:id', verifyUser, deleteStories);
 
 
 

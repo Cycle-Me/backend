@@ -93,7 +93,7 @@ GET http://localhost:5000/stories
 
 ###
 // CREATE STORIES
-POST http://localhost:5000/create-stories
+POST http://localhost:5000/stories/create
 Content-Type: application/json
 
 {
@@ -101,7 +101,24 @@ Content-Type: application/json
 }
 
 
-
 ###
 /// GET SINGLE STORIES
 GET http://localhost:5000/stories/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
+
+
+
+###
+// EDIT STORIES
+PATCH http://localhost:5000/stories/edit/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
+Content-Type: application/json
+
+{
+  "description": "file kedua updated coy"
+}
+
+
+
+###
+// DELETE STORIES
+DELETE http://localhost:5000/stories/delete/89b4f305-162c-4cce-9dd3-92769c630857
+

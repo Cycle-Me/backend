@@ -21,9 +21,9 @@ const store = new sessionstore({
 
 
 // CREATE TABLE
-(async ()=>{
-    await db.sync();
-})();
+// (async ()=>{
+//     await db.sync();
+// })();
 
 app.use(session({
     secret: secret,
@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
 })
 
 // CREATE TABLE SESSION IN DB
-store.sync();
+// store.sync();
 
 try{
     await db.authenticate();
