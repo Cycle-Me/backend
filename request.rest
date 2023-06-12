@@ -1,13 +1,12 @@
 // CREATE ACCOUNT
-POST http://localhost:5000/users
+POST http://localhost:5000/register
 Content-Type: application/json
 
 {
   "name": "faishal",
   "email": "faishal@gmail.com",
   "password": "123",
-  "confPassword": "123",
-  "role": "admin"
+  "confPassword": "123"
 }
 
 
@@ -23,12 +22,12 @@ GET http://localhost:5000/users/a03b1620-c306-41f3-9b19-3bf106d1a543
 
 ###
 // UPDATE USER
-PATCH http://localhost:5000/users/a03b1620-c306-41f3-9b19-3bf106d1a543
+PATCH http://localhost:5000/update/cb02d4c4-7b15-48b4-85e3-83cde7e20b93
 Content-Type: application/json
 
 {
-  "name": "Nishfa Azizah",
-  "email": "nishfaaz@gmail.com",
+  "name": "Faishal Yusuf",
+  "email": "faishal@gmail.com",
   "password": "",
   "confPassword": ""
 }
@@ -36,7 +35,7 @@ Content-Type: application/json
 
 ###
 // DELETE USER
-DELETE http://localhost:5000/users/0687a6cd-5f09-4e97-8d11-feb098466a93
+DELETE http://localhost:5000/delete/0687a6cd-5f09-4e97-8d11-feb098466a93
 
 
 ###
