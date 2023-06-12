@@ -1,7 +1,7 @@
 import express from "express";
 import {
     getStory,
-    getProductById,
+    getStoryById,
     createStory,
     updateProduct,
     deleteProduct
@@ -19,7 +19,7 @@ const upload = multer({
 const router = express.Router();
 
 router.get('/stories', verifyUser, getStory);
-router.get('/stories/:id', verifyUser,  getProductById);
+router.get('/stories/:id', verifyUser, getStoryById);
 router.post('/create-stories', verifyUser, upload.single('attachment'), imgUpload.uploadToGcs, createStory);
 router.patch('/update-stories/:id', verifyUser, updateProduct);
 router.delete('/delete-stories/:id', verifyUser, deleteProduct);

@@ -99,3 +99,9 @@ Content-Type: application/json
 {
   "description": "file kedua"
 }
+
+
+
+###
+/// GET SINGLE STORIES
+GET http://localhost:5000/stories/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
