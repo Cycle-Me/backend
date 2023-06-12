@@ -27,13 +27,11 @@ const Story = db.define('story',{
     },
     userId: {
         type: DataTypes.STRING,
-        allowNull: true,
         validate:{
             notEmpty:false
         }
     },
-},
-    {
+},{
     freezeTableName: true
 });
 

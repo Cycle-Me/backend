@@ -47,15 +47,13 @@ Content-Type: application/json
   "email": "faishal@gmail.com",
   "password": "123"
 }
-
-
 ###
 // LOGIN USER
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "nishfaaz@gmail.com",
+  "email": "harits@gmail.com",
   "password": "123"
 }
 
@@ -71,6 +69,33 @@ DELETE http://localhost:5000/Logout
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###
 // GET ALL STORIES
 GET http://localhost:5000/stories
+
+
+
+###
+// CREATE STORIES
+POST http://localhost:5000/create-stories
+Content-Type: application/json
+
+{
+  "description": "file kedua"
+}

@@ -10,23 +10,23 @@ import imgUpload from "../config/imgUpload.js";
 export const getStory = async (req, res) =>{
     try {
         let response;
-        if(req.role === "admin" || "user"){
+        if(req.role === "admin"){
             response = await Story.findAll({
-                // attributes:['uuid','name','price'],
+                attributes:['uuid','description', 'attachment'],
                 include:[{
                     model: User,
-                    // attributes:['name','email']
+                    attributes:['name','email']
                 }]
             });
-        }else{
+        }else if (req.role === "user"){
             response = await Story.findAll({
-                // attributes:['uuid','name','price'],
+                attributes:['uuid','description', 'attachment'],
                 where:{
                     userId: req.userId
                 },
                 include:[{
                     model: User,
-                    // attributes:['name','email']
+                    attributes:['name','email']
                 }]
             });
         }
@@ -116,7 +116,7 @@ export const createStory  = async(req, res) =>{
             attachment: imageUrl,
             userId: req.userId
         });
-        res.status(201).json({msg: "Product Created Successfuly", createdStory});
+        res.status(201).json({msg: "Story posted Successfuly", createdStory});
     } catch (error) {
         res.status(500).json({msg: error.message});
     }
