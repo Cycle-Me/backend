@@ -3,8 +3,8 @@ POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-  "name": "faishal",
-  "email": "faishal@gmail.com",
+  "name": "harits",
+  "email": "harits@gmail.com",
   "password": "123",
   "confPassword": "123"
 }
@@ -47,15 +47,13 @@ Content-Type: application/json
   "email": "faishal@gmail.com",
   "password": "123"
 }
-
-
 ###
 // LOGIN USER
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "nishfaaz@gmail.com",
+  "email": "harits@gmail.com",
   "password": "123"
 }
 
@@ -71,63 +69,56 @@ DELETE http://localhost:5000/Logout
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###
-// GET ALL PRODUCTS
-GET http://localhost:5000/products
-
-
-
-
-
-
+// GET ALL STORIES
+GET http://localhost:5000/stories
 
 
 
 ###
-// TESTING ON CLOUD ENDPOINT
-
-###
-// LOGIN USER
-POST https://backend-dot-cycleme-2023.et.r.appspot.com/Login
+// CREATE STORIES
+POST http://localhost:5000/stories/create
 Content-Type: application/json
 
 {
-  "email": "nishfa@gmail.com",
-  "password": "123"
+  "description": "file kedua"
 }
 
+
 ###
-// LOGIN ADMIN
-POST https://backend-dot-cycleme-2023.et.r.appspot.com/Login
+/// GET SINGLE STORIES
+GET http://localhost:5000/stories/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
+
+
+
+###
+// EDIT STORIES
+PATCH http://localhost:5000/stories/edit/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
 Content-Type: application/json
 
 {
-  "email": "faishalyb@gmail.com",
-  "password": "123"
+  "description": "file kedua updated coy"
 }
 
-###
-// VERIFY WHO INSIDE
-GET https://backend-dot-cycleme-2023.et.r.appspot.com/me
 
 
 ###
-// LOGOUT
-DELETE https://backend-dot-cycleme-2023.et.r.appspot.com/Logout
+// DELETE STORIES
+DELETE http://localhost:5000/stories/delete/89b4f305-162c-4cce-9dd3-92769c630857
 
-
-###
-// CREATE ACCOUNT
-POST https://backend-dot-cycleme-2023.et.r.appspot.com/users
-Content-Type: application/json
-
-{
-  "name": "Shireen",
-  "email": "shireen@gmail.com",
-  "password": "123",
-  "confPassword": "123",
-  "role": "user"
-}
-###
-// GET ALL USER ADMINONLY
-GET https://backend-dot-cycleme-2023.et.r.appspot.com/users

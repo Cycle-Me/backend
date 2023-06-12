@@ -2,19 +2,18 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
 import Users from "./UserModel.js";
-
 const {DataTypes} = Sequelize;
 
-const Products = db.define('products',{
+const Story = db.define('story',{
     uuid:{
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
-        allowNull: false,
+        allowNull: true,
         validate:{
             notEmpty: true
         }
     },
-    name:{
+    description:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
@@ -22,25 +21,21 @@ const Products = db.define('products',{
             len: [3, 100]
         }
     },
-    price:{
-        type: DataTypes.INTEGER,
+    attachment:{
+        type: DataTypes.STRING(255),
         allowNull: false,
+    },
+    userId: {
+        type: DataTypes.STRING,
         validate:{
-            notEmpty: true
+            notEmpty:false
         }
     },
-    userId:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        }
-    }
 },{
     freezeTableName: true
 });
 
-Users.hasMany(Products);
-Products.belongsTo(Users, {foreignKey: 'userId'});
+Users.hasMany(Story);
+Story.belongsTo(Users, {foreignKey: 'userId'});
 
-export default Products;
+export default Story;
