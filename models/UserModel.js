@@ -38,7 +38,7 @@ const Users = db.define('users',{
     },
     role:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate:{
             notEmpty: true
         }

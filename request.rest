@@ -1,10 +1,10 @@
 // CREATE ACCOUNT
-POST http://localhost:5000/register
+POST http://localhost:5000/users/register
 Content-Type: application/json
 
 {
-  "name": "harits",
-  "email": "harits@gmail.com",
+  "name": "Muhammad Adam",
+  "email": "adam@gmail.com",
   "password": "123",
   "confPassword": "123"
 }
