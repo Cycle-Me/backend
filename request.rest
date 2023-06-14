@@ -53,7 +53,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "email": "harits@gmail.com",
+  "email": "wulan@gmail.com",
   "password": "123"
 }
 
@@ -90,6 +90,10 @@ DELETE http://localhost:5000/Logout
 GET http://localhost:5000/stories
 
 
+###
+// GET MY STORIES
+GET http://localhost:5000/stories/me
+
 
 ###
 // CREATE STORIES
@@ -103,17 +107,17 @@ Content-Type: application/json
 
 ###
 /// GET SINGLE STORIES
-GET http://localhost:5000/stories/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
+GET http://localhost:5000/stories/142df73c-3911-46f4-99e8-395279da51d4
 
 
 
 ###
 // EDIT STORIES
-PATCH http://localhost:5000/stories/edit/f8eb728d-892f-46b9-9fd9-70f65bf1d7a2
+PATCH http://localhost:5000/stories/edit/142df73c-3911-46f4-99e8-395279da51d4
 Content-Type: application/json
 
 {
-  "description": "file kedua updated coy"
+  "description": "story kedua wulan updated"
 }
 
 

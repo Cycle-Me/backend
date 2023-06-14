@@ -6,6 +6,37 @@ import {Op} from "sequelize";
 export const getStory = async (req, res) =>{
     try {
         let response;
+        if(req.role === "admin" || req.role === "user"){
+            response = await Story.findAll({
+                attributes:['uuid','description', 'attachment'],
+                include:[{
+                    model: User,
+                    attributes:['name','email']
+                }]
+            });
+        }
+        // else if (req.role === "user"){
+        //     response = await Story.findAll({
+        //         attributes:['uuid','description', 'attachment'],
+        //         where:{
+        //             userId: req.userId
+        //         },
+        //         include:[{
+        //             model: User,
+        //             attributes:['name','email']
+        //         }]
+        //     });
+        // }
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
+}
+
+
+export const getMyStory = async (req, res) =>{
+    try {
+        let response;
         if(req.role === "admin"){
             response = await Story.findAll({
                 attributes:['uuid','description', 'attachment'],
@@ -14,7 +45,8 @@ export const getStory = async (req, res) =>{
                     attributes:['name','email']
                 }]
             });
-        }else if (req.role === "user"){
+        }
+        else if (req.role === "user"){
             response = await Story.findAll({
                 attributes:['uuid','description', 'attachment'],
                 where:{
@@ -31,6 +63,7 @@ export const getStory = async (req, res) =>{
         res.status(500).json({msg: error.message});
     }
 }
+
 
 export const getStoryById = async(req, res) =>{
     try {
