@@ -438,7 +438,7 @@ Response:
 
 
 <details>
-<summary>GET ALL RECOMENDATION RECYCLE</summary>
+<summary>MACHINE LEARNING API</summary>
 URL :   https://ml-api-ilhkkpshpa-uc.a.run.app
 
 Request:
